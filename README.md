@@ -1,3 +1,22 @@
+## Install
+
+```bash
+# first install the latest nvidia-driver
+sudo apt install nvidia-driver-460
+
+## use miniconda to create a yolo envirnment, use python>3.8
+conda create -n yolo python=3.8
+conda activate yolo
+# install pytorch and cuda
+conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch
+# install requirements.txt
+pip install -r requirements.txt
+# cd to the yolo project folder and run the sample
+python detect.py --source data/images --weights yolov5s.pt --conf 0.25
+# done, modified and train your own model
+```
+
+
 <a href="https://apps.apple.com/app/id1452689527" target="_blank">
 <img src="https://user-images.githubusercontent.com/26833433/98699617-a1595a00-2377-11eb-8145-fc674eb9b1a7.jpg" width="1000"></a>
 &nbsp
