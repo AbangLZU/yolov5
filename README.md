@@ -16,6 +16,46 @@ python detect.py --source data/images --weights yolov5s.pt --conf 0.25
 # done, modified and train your own model
 ```
 
+## Use yolo v5 in ros
+First, check your condarc
+```bash
+cat $HOME/.condarc
+```
+
+Do not use tsinghua conda-forge source in custom_channels, as reference, my condarc is:
+
+```yaml
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+custom_channels:
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+```
+
+The use miniconda install the rospy(which will be independant with your system ROS):
+
+```bash
+conda install -c conda-forge ros-rospy
+```
+
+This will take few minutes to download and install.
+
+Then test in Python:
+
+```python
+import rospy
+import torch
+```
+
+If there is no error occours, Then you have already install torch and ros in a same conda environment. Let's run YOLO v5 in a ROS node!
+
 
 <a href="https://apps.apple.com/app/id1452689527" target="_blank">
 <img src="https://user-images.githubusercontent.com/26833433/98699617-a1595a00-2377-11eb-8145-fc674eb9b1a7.jpg" width="1000"></a>
