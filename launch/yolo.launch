@@ -1,0 +1,12 @@
+<launch>
+
+  <node name="deeplab_node" pkg="sementic_seg" type="deeplab_node.py" output="screen">
+    <param name="rgb_input" value="/stereo/left_image"/>
+    <param name="model" value="xception71_cityscapes_trainfine"/>
+    <param name="visualize" value="true"/>
+    <param name="model_dir" value="$(find sementic_seg)/model/"/>
+    <!-- publish rate is the inference rate of the neural network -->
+    <param name="publish_rate" value="2"/>
+    <param name="camera_intrinsics_file" value="$(find smarteye)/intrinsics/left.yaml"/>
+  </node>
+</launch>
